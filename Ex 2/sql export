@@ -1,0 +1,15 @@
+import sqlite3
+
+# Create/connect to SQLite database
+conn = sqlite3.connect("Social_Media_Engagement.db")
+
+# Execute SQL file
+with open("Social_Media_Engagement.sql", "r", encoding="utf-8") as file:
+    sql_script = file.read()
+
+conn.executescript(sql_script)
+
+print("Data exported successfully to SQLite database!")
+
+# Close connection
+conn.close()
